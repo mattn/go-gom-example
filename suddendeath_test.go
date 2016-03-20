@@ -4,6 +4,7 @@ import (
 	"github.com/mattn/gover"
 	"io/ioutil"
 	"os"
+	"regexp"
 	"testing"
 )
 
@@ -27,6 +28,8 @@ func TestSimple(t *testing.T) {
 ＞　こんにちわ世界　＜
 ￣ＹＹＹＹＹＹＹＹＹ￣
 `[1:]
+	expected = regexp.MustCompile("\x1b[[^m]*m").ReplaceAllString(expected, "")
+
 	if value != expected {
 		t.Fatalf("Expected %v, but %v:", value, expected)
 	}
