@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/mattn/gover"
 	"io/ioutil"
 	"os"
 	"testing"
@@ -28,5 +29,12 @@ func TestSimple(t *testing.T) {
 `
 	if value != expected[1:] {
 		t.Fatalf("Expected %v, but %d:", value, expected)
+	}
+}
+
+func TestDependency(t *testing.T) {
+	v := gover.Version()
+	if gover.Version() == "" {
+		t.Fatalf("Expected empty string, but %v:", v)
 	}
 }
