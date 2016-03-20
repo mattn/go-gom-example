@@ -26,8 +26,8 @@ func TestSimple(t *testing.T) {
 ＿人人人人人人人人人＿
 ＞　こんにちわ世界　＜
 ￣ＹＹＹＹＹＹＹＹＹ￣
-`
-	if value != expected[1:] {
+`[1:]
+	if value != expected {
 		t.Fatalf("Expected %v, but %v:", value, expected)
 	}
 }
