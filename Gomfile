@@ -1,2 +1,2 @@
-gom 'github.com/mattn/go-runewidth', :tag => 'go1'
-gom 'github.com/daviddengcn/go-colortext'
+gom 'github.com/daviddengcn/go-colortext', :commit => '3b18c8575a432453d41fdafb340099fff5bba2f7'
+gom 'github.com/mattn', :commit => '42215ec36bbcbc8b5d20366c8548e8753e5f9939'
