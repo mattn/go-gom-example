@@ -28,7 +28,8 @@ func TestSimple(t *testing.T) {
 ＞　こんにちわ世界　＜
 ￣ＹＹＹＹＹＹＹＹＹ￣
 `[1:]
-	expected = regexp.MustCompile("\x1b[[^m]*m").ReplaceAllString(expected, "")
+
+	value = regexp.MustCompile(`\x1b\[[^m]*m`).ReplaceAllString(value, "")
 
 	if value != expected {
 		t.Fatalf("Expected %v, but %v:", value, expected)
