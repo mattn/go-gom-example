@@ -1,2 +1,2 @@
-gom 'github.com/mattn/go-runewidth', :tag => 'go1'
+gom 'github.com/mattn/go-runewidth'
 gom 'github.com/daviddengcn/go-colortext'
