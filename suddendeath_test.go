@@ -1,8 +1,10 @@
 package main
 
 import (
+	"github.com/mattn/gover"
 	"io/ioutil"
 	"os"
+	"regexp"
 	"testing"
 )
 
@@ -25,8 +27,18 @@ func TestSimple(t *testing.T) {
 ＿人人人人人人人人人＿
 ＞　こんにちわ世界　＜
 ￣ＹＹＹＹＹＹＹＹＹ￣
-`
-	if value != expected[1:] {
-		t.Fatalf("Expected %v, but %d:", value, expected)
+`[1:]
+
+	value = regexp.MustCompile(`\x1b\[[^m]*m`).ReplaceAllString(value, "")
+
+	if value != expected {
+		t.Fatalf("Expected %v, but %v:", value, expected)
+	}
+}
+
+func TestDependency(t *testing.T) {
+	v := gover.Version()
+	if gover.Version() == "" {
+		t.Fatalf("Expected empty string, but %v:", v)
 	}
 }
